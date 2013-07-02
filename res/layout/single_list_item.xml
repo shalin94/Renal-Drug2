@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <TextView android:id="@+id/medicine_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dip" />
+    <TextView android:id="@+id/normal_dose"
+        android:layout_below="@id/medicine_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:text="@string/normal_renal_dosage"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:paddingLeft="10dip"/>
+    <ListView
+        android:id="@+id/normal_dose_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/normal_dose" >
+    </ListView>
+    <TextView android:id="@+id/impairment_dose"
+        android:layout_below="@id/normal_dose_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:text="@string/renal_impairment_dosage"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:paddingLeft="10dip"/>
+    <TextView android:id="@+id/gmr"
+        android:layout_below="@id/impairment_dose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:text="@string/gfr"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:paddingLeft="10dip"/>
+    <ListView android:id="@+id/gfr_list"
+        android:layout_below="@id/gmr"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"></ListView>
+</RelativeLayout>

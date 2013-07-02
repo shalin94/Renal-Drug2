@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">RenalDrug2</string>
+    <string name="count1">You have %1$s entries in your table</string>
+    <string name="normal_renal_dosage">Dose in Normal Renal Function</string>
+    <string name="renal_impairment_dosage">Dose in Renal Impairment</string> 
+    <string name="gfr">GFR (mL/MIN)</string>
+
+</resources>
