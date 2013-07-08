@@ -45,6 +45,8 @@ public class mainView extends Activity{
 				Log.i(this.getClass().getName(), "table = " + t);
 				tables.add(t);
 			}
+			List<Medicine> medicines = myDbHelper.getMedicines();
+			
 			Cursor cursor = myDbHelper.rawQuery("select * from medicines",null);
 			if(cursor.moveToFirst()) {
 				while (cursor.isAfterLast() == false){
