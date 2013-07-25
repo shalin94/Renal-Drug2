@@ -11,15 +11,20 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.*;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 //import android.widget.ArrayAdapter;
 //import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 public class mainView extends Activity{
 	private TextView myText = null;
+	EditText inputSearch;
+	StableArrayAdapter adapter;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,6 +32,8 @@ public class mainView extends Activity{
 		final ListView listview = (ListView) findViewById(R.id.listview);
 		final ArrayList<String> list = new ArrayList<String>();
 		DataBaseHelper myDbHelper = null;
+		
+		inputSearch = (EditText) findViewById(R.id.inputSearch);
 		try {
 			myDbHelper = new DataBaseHelper(mainView.this);
 			//Cursor c = myDbHelper.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
@@ -61,8 +68,28 @@ public class mainView extends Activity{
 		} finally {
 			myDbHelper.close();
 		}
-		final StableArrayAdapter adapter = new StableArrayAdapter(this,android.R.layout.simple_list_item_1, list);
+		adapter = new StableArrayAdapter(this,android.R.layout.simple_list_item_1, list);
 		listview.setAdapter(adapter);
+		inputSearch.addTextChangedListener(new TextWatcher() {
+            
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+                mainView.this.adapter.getFilter().filter(cs);  
+            }
+             
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                    int arg3) {
+                // TODO Auto-generated method stub
+                 
+            }
+             
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub                         
+            }
+        });
 		
 		listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override

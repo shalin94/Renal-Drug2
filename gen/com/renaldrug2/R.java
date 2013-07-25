@@ -14,15 +14,16 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int gfr_list=0x7f060006;
-        public static final int gmr=0x7f060005;
-        public static final int impairment_dose=0x7f060004;
+        public static final int gfr_list=0x7f060007;
+        public static final int gmr=0x7f060006;
+        public static final int impairment_dose=0x7f060005;
+        public static final int inputSearch=0x7f060000;
         public static final int left=0x7f060008;
-        public static final int listview=0x7f060000;
-        public static final int medicine_label=0x7f060001;
-        public static final int normal_dose=0x7f060002;
-        public static final int normal_dose_list=0x7f060003;
-        public static final int right=0x7f060007;
+        public static final int listview=0x7f060001;
+        public static final int medicine_label=0x7f060002;
+        public static final int normal_dose=0x7f060003;
+        public static final int normal_dose_list=0x7f060004;
+        public static final int right=0x7f060009;
     }
     public static final class layout {
         public static final int listview=0x7f030000;
