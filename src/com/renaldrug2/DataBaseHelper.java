@@ -16,6 +16,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.content.*;
 import android.database.*;
 import android.database.sqlite.*;
+import android.os.StrictMode;
 //import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -38,8 +39,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		this.myContext = context;
 		DB_PATH = "/data/data/" + context.getPackageName()+"/databases/" + DB_NAME;
 		initializeDataBase();
-		String hash = getHash();
-		String phoneDBHash = generateDBHash();
+		/*String hash = getLatestDBChecksum();
+		String phoneDBHash = getCurrentDBChecksum();
 		if (hash.equals(phoneDBHash)){
 			//Do Nothing
 			String update = "They're the same";
@@ -47,7 +48,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		}
 		else {
 			downloadDatabase(DB_PATH);
-		}
+		}*/
 		
 	}
 
@@ -174,14 +175,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		return myDataBase.rawQuery(sql, selectionArgs);
 	}
 	
-	private String getHash(){
+	private String getLatestDBChecksum(){
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+			StrictMode.ThreadPolicy policy = 
+			        new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+			}
 		DefaultHttpClient client = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet("http://localhost:8080/RenalDrug-Backend/Downloads?checksum");
+		HttpGet httpGet = new HttpGet("http://10.0.2.2:8080/RenalDrug-Backend/Downloads?checksum");
 		String response = "";
 		try {
 		  HttpResponse execute = client.execute(httpGet);
 		  InputStream content = execute.getEntity().getContent();
-
 		  BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
 		  String s = "";
 		  while ((s = buffer.readLine()) != null) {
@@ -189,11 +194,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		  }
 		} catch (Exception e) {
 		  Log.i("getHash","Failed : " + e);
-		}
+		};
 		return response;
 	}
 	
-	private String generateDBHash(){
+	private String getCurrentDBChecksum(){
 		byte [] buffer = new byte[1024];
 		String checksum = "";
 		try{
@@ -221,7 +226,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		try {
 	        File f = new File(pathToSave);
 	        int count;
-	        URL url = new URL("http://localhost:8080/RenalDrug-Backend/Downloads");
+	        URL url = new URL("http://10.0.2.2:8080/RenalDrug-Backend/Downloads?checksum=false");
 	        URLConnection connection = url.openConnection();
 	        connection.connect();
 	        InputStream input = new BufferedInputStream(url.openStream());

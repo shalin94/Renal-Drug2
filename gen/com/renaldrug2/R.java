@@ -18,18 +18,23 @@ public final class R {
         public static final int gmr=0x7f060006;
         public static final int impairment_dose=0x7f060005;
         public static final int inputSearch=0x7f060000;
-        public static final int left=0x7f060008;
+        public static final int left=0x7f06000b;
         public static final int listview=0x7f060001;
         public static final int medicine_label=0x7f060002;
         public static final int normal_dose=0x7f060003;
         public static final int normal_dose_list=0x7f060004;
-        public static final int right=0x7f060009;
+        public static final int replacement_list=0x7f06000a;
+        public static final int replacement_therapy_tv=0x7f060008;
+        public static final int replacement_therapy_tv2=0x7f060009;
+        public static final int right=0x7f06000c;
     }
     public static final class layout {
         public static final int listview=0x7f030000;
         public static final int main=0x7f030001;
-        public static final int single_list_item=0x7f030002;
-        public static final int two_item_view=0x7f030003;
+        public static final int simple_list1=0x7f030002;
+        public static final int simplelist1=0x7f030003;
+        public static final int single_list_item=0x7f030004;
+        public static final int two_item_view=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -37,6 +42,8 @@ public final class R {
         public static final int gfr=0x7f040004;
         public static final int normal_renal_dosage=0x7f040002;
         public static final int renal_impairment_dosage=0x7f040003;
+        public static final int replacement_therapy=0x7f040005;
+        public static final int replacement_therapy2=0x7f040006;
     }
     public static final class style {
         /** 

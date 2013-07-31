@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -44,6 +45,28 @@
         android:paddingLeft="10dip"/>
     <ListView android:id="@+id/gfr_list"
         android:layout_below="@id/gmr"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></ListView>
+    <TextView android:id="@+id/replacement_therapy_tv"
+        android:layout_below="@id/gfr_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:text="@string/replacement_therapy"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:paddingLeft="10dip"/>
+    <TextView android:id="@+id/replacement_therapy_tv2"
+        android:layout_below="@id/replacement_therapy_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:text="@string/replacement_therapy2"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:paddingLeft="10dip"/>
+    <ListView android:id="@+id/replacement_list"
+        android:layout_below="@id/replacement_therapy_tv2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
 </RelativeLayout>

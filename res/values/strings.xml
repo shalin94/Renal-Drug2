@@ -2,8 +2,10 @@
 
     <string name="app_name">RenalDrug2</string>
     <string name="count1">You have %1$s entries in your table</string>
-    <string name="normal_renal_dosage">Dose in Normal Renal Function</string>
-    <string name="renal_impairment_dosage">Dose in Renal Impairment</string> 
+    <string name="normal_renal_dosage">DOSE IN NORMAL RENAL FUNCTION</string>
+    <string name="renal_impairment_dosage">DOSE IN RENAL IMPAIRMENT</string> 
     <string name="gfr">GFR (mL/MIN)</string>
+    <string name="replacement_therapy">DOSE IN PATIENTS UNDERGOING</string>
+    <string name="replacement_therapy2">RENAL REPLACEMENT THERAPIES</string>
 
 </resources>
